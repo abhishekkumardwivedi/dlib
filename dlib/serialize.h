@@ -1609,9 +1609,10 @@ namespace dlib
                         ".\nERROR: " + e.info + "\n" + suffix);
                 }
                 else 
-                {
+                {std::ostringstream oss;
+                    oss << objects_read + 1;
                     throw serialization_error("An error occurred while trying to read the " +
-                        std::to_string(objects_read+1) + "th object from the file " + filename +
+                        oss.str() + "th object from the file " + filename +
                         ".\nERROR: " + e.info + "\n" + suffix);
                 }
             }
